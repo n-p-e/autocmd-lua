@@ -17,8 +17,13 @@ require('autocmd-lua').create_group {
     'FileType', {
       lua = function() do_something end,
       markdown = 'set sw=2',
+      -- the key is passed as the pattern
+      ['help,man'] = 'nmap q :q<CR>',
     }
   }}
 }
 ```
 
+## Planned features
+
+- [ ] Support `<amatch>` in callback
