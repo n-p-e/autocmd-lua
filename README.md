@@ -1,6 +1,6 @@
-# autocmd-lua: A wrapper to define Neovim autocommands in lua
+## autocmd-lua: Define Neovim autocommands without pain
 
-## Example
+### Example
 
 ```lua
 require('autocmd-lua').create_group {
@@ -24,6 +24,6 @@ require('autocmd-lua').create_group {
 }
 ```
 
-## Planned features
+### Planned features
 
 - [ ] Support `<amatch>` in callback
