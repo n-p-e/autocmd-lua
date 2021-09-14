@@ -2,7 +2,7 @@ local M = {}
 
 M._events = {}
 
-M.create_group = function(args)
+M.augroup = function(args)
   args = args or {}
 
   local group = args.group or args[1]
@@ -61,6 +61,8 @@ M.create_group = function(args)
 
   vim.cmd(definition)
 end
+
+M.create_group = M.augroup
 
 M._execute_group = function(group, num)
   local autocmds = M._events[group]

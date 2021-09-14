@@ -10,7 +10,7 @@ describe('autocmd-lua', function()
   end)
 
   it('defines an autocmd group', function()
-    require('autocmd-lua').create_group {
+    require('autocmd-lua').augroup {
       'test_augroup',
       autocmds = {
         { event = 'FileType',    pattern = 'lua', cmd = function() vim.opt.sw = 2 end },
@@ -36,7 +36,7 @@ describe('autocmd-lua', function()
   end)
 
   it('defines an autocmd group with alternative style', function ()
-    require('autocmd-lua').create_group {
+    require('autocmd-lua').augroup {
       group = 'test_augroup',
       autocmds = {{
         'FileType', {

@@ -3,7 +3,7 @@
 ### Example
 
 ```lua
-require('autocmd-lua').create_group {
+require('autocmd-lua').augroup {
   group = 'test_group',
   autocmds = {
     { event = 'FileType',    pattern = 'lua', cmd = function() vim.opt.sw = 2 end },
@@ -11,9 +11,10 @@ require('autocmd-lua').create_group {
   },
 }
 -- OR
-require('autocmd-lua').create_group {
-  group = 'filetype_commands',
-  autocmds = {{
+require('autocmd-lua').augroup {
+  -- the keys `group` and `autocmds` are optional
+  'filetype_commands',
+  {{
     'FileType', {
       lua = function() do_something end,
       markdown = 'set sw=2',
