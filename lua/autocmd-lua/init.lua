@@ -2,11 +2,6 @@ local M = {}
 
 M._events = {}
 
--- Example
---[[
-  -- OR
-
---]]
 M.create_group = function(args)
   args = args or {}
 
