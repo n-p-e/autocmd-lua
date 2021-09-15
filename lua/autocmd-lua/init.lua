@@ -11,7 +11,7 @@ M.augroup = function(args)
   vim.validate {
     group = { group, function(a) return type(a) == 'string' and string.match(a, '%s') == nil end, 'valid augroup name' },
   }
-  if not vim.tbl_islist(autocmds) then
+  if table.maxn(autocmds) == 0 then
     vim.api.nvim_notify('Warning: autocmds should be a list', 3, {})
   end
 
