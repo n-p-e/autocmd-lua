@@ -1,5 +1,8 @@
 local M = {}
 
+-- Whitespace or single quote or exactly 'END'/'end'
+local group_forbidden_pattern = vim.regex [[\v(\s|'|^END$|^end$)]]
+
 M._events = {}
 
 M.augroup = function(args)
@@ -7,9 +10,8 @@ M.augroup = function(args)
 
   local group = args.group or args[1]
   local autocmds = args.autocmds or args[2]
-  -- group name should only contain non-whitespace characters
   vim.validate {
-    group = { group, function(a) return type(a) == 'string' and string.match(a, '%s') == nil end, 'valid augroup name' },
+    group = { group, function(s) return type(s) == 'string' and not group_forbidden_pattern:match_str(s) end, 'valid augroup name' },
   }
   if table.maxn(autocmds) == 0 then
     vim.api.nvim_notify('Warning: autocmds should be a list', 3, {})
