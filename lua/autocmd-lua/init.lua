@@ -11,6 +11,9 @@ M.augroup = function(args)
   vim.validate {
     group = { group, function(a) return type(a) == 'string' and string.match(a, '%s') == nil end, 'valid augroup name' },
   }
+  if not vim.tbl_islist(autocmds) then
+    vim.api.nvim_notify('Warning: autocmds should be a list', 3, {})
+  end
 
   local commands = {} -- array of commands (vimL string or lua function)
   local definition = { string.format('augroup %s', group), '  au!' }
