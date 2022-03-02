@@ -1,3 +1,8 @@
+
+**Archived because the lua_autocmd is merged. Update to latest Neovim nightly to use it.**
+===
+
+
 ## autocmd-lua: Define Neovim autocommands without pain
 
 ### Install
